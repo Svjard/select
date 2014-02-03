@@ -90,12 +90,11 @@ $mobileBreakPointSize: ($maxRows + 4) * $optionHeight
                 +border-radius(0 0 .25em .25em)
 
 .select-target.select-theme-default
-    +inline-block
     +border-radius(.25em)
     +user-select(none)
     +no-mobile-tap-highlight
     position: relative
-    padding: $paddingTopBottom 3em $paddingTopBottom 1em
+    padding: 0.1rem 1em 0.1rem 1em
     background: #f6f6f6
     border: .18em solid #ddd
     cursor: pointer
@@ -104,6 +103,7 @@ $mobileBreakPointSize: ($maxRows + 4) * $optionHeight
     white-space: nowrap
     max-width: 100%
     overflow: hidden
+    margin-top: 5px
     text-overflow: ellipsis
 
     &:hover
@@ -113,6 +113,9 @@ $mobileBreakPointSize: ($maxRows + 4) * $optionHeight
     &.select-target-focused, &.select-target-focused:focus
         border-color: #63a2f1
         outline: none
+
+    i
+        padding-top: 1px
 
     b
         position: absolute

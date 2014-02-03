@@ -1,5 +1,5 @@
 /*! select 0.4.5 */
-/*! tether 0.5.0 */
+/*! tether 0.5.2 */
 (function() {
   var Evented, addClass, defer, deferred, extend, flush, getBounds, getOffsetParent, getOrigin, getScrollParent, hasClass, node, removeClass, uniqueId, updateClasses, zeroPosCache,
     __hasProp = {}.hasOwnProperty,
@@ -612,7 +612,7 @@
             if (this.target !== document.body) {
               out.height = Math.max(out.height, 24);
             }
-            scrollPercentage = target.scrollTop / (target.scrollHeight - height);
+            scrollPercentage = this.target.scrollTop / (target.scrollHeight - height);
             out.top = scrollPercentage * (height - out.height - fitAdj) + bounds.top + parseFloat(style.borderTopWidth);
             if (this.target === document.body) {
               out.height = Math.max(out.height, 24);
@@ -814,7 +814,7 @@
         _ref4 = ['Top', 'Left', 'Bottom', 'Right'];
         for (_j = 0, _len1 = _ref4.length; _j < _len1; _j++) {
           side = _ref4[_j];
-          offsetBorder[side] = parseFloat(offsetParentStyle["border" + side + "Width"]);
+          offsetBorder[side.toLowerCase()] = parseFloat(offsetParentStyle["border" + side + "Width"]);
         }
         offsetPosition.right = document.body.scrollWidth - offsetPosition.left - offsetParentSize.width + offsetBorder.right;
         offsetPosition.bottom = document.body.scrollHeight - offsetPosition.top - offsetParentSize.height + offsetBorder.bottom;
@@ -1650,7 +1650,7 @@
     };
 
     Select.prototype.renderTarget = function() {
-      var option, _i, _len, _ref1;
+      var icon, option, _i, _len, _ref1;
       this.target.innerHTML = '';
       _ref1 = this.select.querySelectorAll('option');
       for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
@@ -1660,7 +1660,10 @@
           break;
         }
       }
-      return this.target.appendChild(document.createElement('b'));
+      icon = document.createElement('i');
+      icon.classList.add('fa');
+      icon.classList.add('fa-caret-down');
+      return this.target.appendChild(icon);
     };
 
     Select.prototype.renderDrop = function() {

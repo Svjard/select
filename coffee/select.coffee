@@ -49,7 +49,7 @@ document.addEventListener 'keypress', (e) ->
     # They hit the same char over and over, maybe they want to cycle through
     # the options that start with that char
     repeatedOptions = select.findOptionsByPrefix(searchText[0])
-    
+
     if repeatedOptions.length
       selected = repeatedOptions.indexOf select.getChosen()
 
@@ -67,7 +67,7 @@ document.addEventListener 'keypress', (e) ->
     return
 
   # No match at all, do nothing
-  
+
 document.addEventListener 'keydown', (e) ->
   # We consider this independently of the keypress handler so we can intercept keys that have
   # built-in functions.
@@ -108,7 +108,7 @@ class Select extends Evented
     @renderDrop()
 
     @setupSelect()
-    
+
     @setupTether()
     @bindClick()
 
@@ -269,7 +269,10 @@ class Select extends Evented
         @target.innerHTML = option.innerHTML
         break
 
-    @target.appendChild document.createElement 'b'
+    icon = document.createElement 'i'
+    icon.classList.add 'fa'
+    icon.classList.add 'fa-caret-down'
+    @target.appendChild icon
 
   renderDrop: ->
     optionList = document.createElement 'ul'

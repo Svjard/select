@@ -291,7 +291,7 @@
     };
 
     Select.prototype.renderTarget = function() {
-      var option, _i, _len, _ref1;
+      var icon, option, _i, _len, _ref1;
       this.target.innerHTML = '';
       _ref1 = this.select.querySelectorAll('option');
       for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
@@ -301,7 +301,10 @@
           break;
         }
       }
-      return this.target.appendChild(document.createElement('b'));
+      icon = document.createElement('i');
+      icon.classList.add('fa');
+      icon.classList.add('fa-caret-down');
+      return this.target.appendChild(icon);
     };
 
     Select.prototype.renderDrop = function() {
